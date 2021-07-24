@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <meta charset="utf-8">
+    <style>
+        #grid{
+            display:grid;
+            grid-template-rows: 1.05fr 1.75fr 0.2fr;
+        }
+        .menu{
+            padding:15px 25px;
+            padding-right:7.5%;
+            text-align:right;
+            margin:0;
+            font-size:30px;
+        }
+        .top {
+            text-align:center;
+            padding-left:10%;
+            padding-right:15%;
+            margin:35px;
+        }
+        .header {
+            padding:35px;
+            margin:15px;
+            font-size:85px;
+            font-style:italic;
+        }
+        .textBoxGrid{
+            display:grid;
+            grid-template-columns: 1.25fr 500px 80px 1fr;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .neck {
+            padding: 35px;
+
+        }
+        .content {
+            display:grid;
+            grid-template-columns: 2fr 5fr;
+            font-size:1.35em;
+        }
+        .leftlist{
+            border-right: 1px black dotted;
+            border-top: 1px black dotted;
+            text-align:center;
+            padding:10px;
+            padding-left:5%;
+            padding-right:10%;
+        }
+        .centerlist{
+            text-align:left;
+            padding:10px;
+            padding-left:22%;
+            padding-right:15%;
+            border-top: 1px black dotted;
+            display:grid;
+            grid-template-columns: 1fr 500px 100px 1fr;
+        }
+        .beforeList{
+            border: 0;
+            line-height: 2.5;
+            padding: 2.5px 30px;
+            font-size: 25px;
+            text-align: center;
+            color: gold;
+            text-shadow: 1px 1px 1px #000;
+            border-radius:10px;
+            background-color: rgba(071, 071, 153, 1);
+            background-image: linear-gradient(to top left,
+                                                rgba(255, 255, 255, .3),
+                                                rgba(255, 255, 255, .3) 30%,
+                                                rgba(255, 255, 255, 1));
+            box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                        inset -2px -2px 3px rgba(0, 0, 0, .6);
+        }
+        .beforeList:hover{
+            background-color: rgba(000, 0, 153, 1);
+        }
+        .beforeList:active{
+            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                        inset 2px 2px 3px rgba(0, 0, 0, .6);
+        }
+        .textbox{
+            color: gray;
+            width:450px; 
+            height:65px;
+            padding:0 15px;
+            font-size: 20px;
+            text-align:left;
+            border:4px;
+            border-radius:15px;
+            box-shadow: inset 2px 2px 3px black,
+                        inset -2px -2px 3px black;
+        }
+        .textSender{
+            color: gray;
+            width:65px;
+            height:65px;
+            border-radius:8px;
+            border: 0;
+            box-shadow: inset 0px 0px 3px black;
+            background-color: rgba(071, 071, 153, 1);
+            background-image: linear-gradient(to top left,
+                                                rgba(255, 255, 255, .3),
+                                                rgba(255, 255, 255, .3) 30%,
+                                                rgba(255, 255, 255, 1));
+            box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                        inset -2px -2px 3px rgba(0, 0, 0, .6);
+        }
+        .beforeListScrollbar{
+            margin:20px;
+            padding:20px;
+            text-align:left;
+            font-size:2.2rem;
+            line-height:3rem;
+            width: 500px;
+            height: 600px;
+            overflow: auto;
+        }
+        .beforeListScrollbar::-webkit-scrollbar{
+            width: 20px;
+        }
+        .beforeListScrollbar::-webkit-scrollbar-thumb{
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            background-color: rebeccapurple;
+            box-shadow: inset 0px 0px 3px white;
+            border-radius: 999px;
+        }
+        .beforeListScrollbar::-webkit-scrollbar-track{
+            background-color: grey;
+            border-radius: 15px;
+            box-shadow: inset 0px 0px 6px white;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="grid">
+    <div class = "main">
+        <div class="menu">
+            <input type="button" style="width:27pt; height:27pt">
+        </div>
+        <div class ="top">
+            <h1 class="header"><a href = "index.html"> To Do List </a></h1>
+            <div class = "textBoxGrid">
+                <div></div>
+                <div>
+                    <input class = "textbox" type="text" value="내용을 입력해주세요."
+                    onfocus = "
+                    if(this.value == '내용을 입력해주세요.'){
+                        this.value = ''
+                        style='color:black;'
+                    }"
+                    onblur = "
+                    if(this.value == ''){
+                        this.value = '내용을 입력해주세요.'
+                        style='color:gray;'
+                    }">
+                </div>
+                <div>
+                    <input class = "textSender" type= "button">
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class = "content">
+        <div class = "leftlist">
+            <div>
+                <input class = "beforeList" type="button" value="중요 목록">
+            </div>
+            <!--배열, 반복문을 통해 db에서 데이터 리스트 불러오기-->
+            <div class = "beforeListScrollbar">
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+                text<br>
+            </div>
+        </div>
+        <div class = "centerlist">
+            <div></div>
+            <div>
+                <div>
+                    <input class = "beforeList" type="button" value="지난 목록">
+                </div>
+                <!-- css 입력해야함 -->
+                <div class = "inputList">
+                    text
+                </div>
+            </div>
+            <!--위의 일반 목록 리스트 중에서 중요표시 체크된 리스트 불러오기-->
+            <div>
+                checkbox
+            </div>
+        </div>
+    </div>
+    <div style = 'text-align:center'>
+            BottomLine
+    </div>
+</div>
+
+
+
+</body>
+</html>
